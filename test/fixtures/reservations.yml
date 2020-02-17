@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: reservations
+#
+#  id                  :bigint           not null, primary key
+#  movie_id            :bigint           not null
+#  reservation_date    :date             not null
+#  identification_card :string           not null
+#  full_name           :string           not null
+#  email               :string           not null
+#  phone               :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Movie: one
+  reservation_date: 2020-02-17
+  identification_card: MyString
+  full_name: MyString
+  email: MyString
+  phone: MyString
+
+two:
+  Movie: two
+  reservation_date: 2020-02-17
+  identification_card: MyString
+  full_name: MyString
+  email: MyString
+  phone: MyString
