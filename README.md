@@ -7,7 +7,7 @@ Run :
 $ bundle install
 ```
 
-## Run page
+## Run server
 Run :
 ```
 $ rails s
