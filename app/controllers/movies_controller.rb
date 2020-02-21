@@ -22,8 +22,13 @@ class MoviesController < ApplicationController
   def load_movies
     params = query_params
     @movies = Movie
-    @movies = @movies.where(:movie_date => params[:initial_date]..params[:final_date]) if (params[:initial_date] && params[:final_date])
-    @movies = @movies.order(movie_date: :asc)
+    filter_dates if (params[:initial_date] && params[:final_date])
+    @movies = @movies.order(start_date: :asc)
+  end
+
+  def filter_dates
+    @movies = @movies.where(:start_date => params[:initial_date]..params[:final_date])
+      .or(Movie.where(:final_date => params[:initial_date]..params[:final_date]))
   end
 
   def query_params
@@ -34,6 +39,7 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:name,
                                  :description,
                                  :image_url,
-                                 :movie_date)
+                                 :start_date,
+                                 :final_date)
   end
 end

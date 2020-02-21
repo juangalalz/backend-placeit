@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 2020_02_17_133655) do
     t.string "name", null: false
     t.text "description", null: false
     t.text "image_url", null: false
-    t.date "movie_date", null: false
+    t.date "start_date", null: false
+    t.date "final_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

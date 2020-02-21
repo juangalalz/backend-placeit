@@ -4,7 +4,8 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.text :description, null: false
       t.text :image_url, null: false
-      t.date :movie_date, null: false
+      t.date :start_date, null: false
+      t.date :final_date, null: false
 
       t.timestamps
     end

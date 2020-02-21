@@ -48,8 +48,13 @@ class ReservationsController < ApplicationController
   def load_reservations
     params = query_params
     @reservations = Reservation
+    filter_dates if (params[:initial_date] && params[:final_date])
     @reservations = @reservations.where(movie_id: params[:movie_id]) if params[:movie_id]
     @reservations = @reservations.order(created_at: :asc)
+  end
+
+  def filter_dates
+    @reservations = @reservations.where(:created_at => params[:initial_date]..params[:final_date])
   end
 
   def load_reservation
@@ -58,6 +63,10 @@ class ReservationsController < ApplicationController
 
   def query_params
     params.permit(:movie_id)
+  end
+
+  def query_params
+    params.permit(:initial_date, :final_date)
   end
 
   def reservation_params

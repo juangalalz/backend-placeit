@@ -24,4 +24,8 @@ class Reservation < ApplicationRecord
     return Reservation.where(movie_id: movie_id).count < 10
   end
 
+  def movie_name
+    movie.name
+  end
+
 end
